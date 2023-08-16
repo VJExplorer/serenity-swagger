@@ -3,7 +3,6 @@ package swaglabs.model;
 public enum SwaglabsUser {
 
     STANDARD_USER("standard_user","secret_sauce");
-
     public final String username;
     public final String password;
 

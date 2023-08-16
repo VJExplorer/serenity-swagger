@@ -1,4 +1,5 @@
 package starter.stepdefinitions;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,13 +9,13 @@ import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.questions.Text;
 import swaglabs.model.SwaglabsUser;
 import swaglabs.tasks.athentication.Login;
+import swaglabs.tasks.navigation.Navigate;
 
 
 public class AuthenticationStepDefinition {
-
     @Given("{actor} is on the login page")
     public void on_the_login_page(Actor actor){
-        actor.attemptsTo(Open.url("https://www.saucedemo.com/"));
+        actor.attemptsTo(Navigate.toTheLoginPage());
 
     }
     @When("{actor} logs in with valid credentials")
@@ -30,4 +31,7 @@ public class AuthenticationStepDefinition {
         actor.attemptsTo(
                 Ensure.that(Text.of(".title")).isEqualToIgnoringCase("Products"));
     }
+
+
+
 }
