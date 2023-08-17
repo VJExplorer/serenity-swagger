@@ -22,7 +22,7 @@ public class CatalogStepDefinitions {
     @When("{actor} adds following items to the cart:")
     public void heAddsFollowingItemsToTheCart(Actor actor, List<String> items) {
         cartItems = items;
-        items.forEach(
+        cartItems.forEach(
                 itemName -> actor.attemptsTo(AddToCart.item(itemName))
         );
     }

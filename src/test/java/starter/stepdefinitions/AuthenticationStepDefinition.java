@@ -18,6 +18,12 @@ public class AuthenticationStepDefinition {
         actor.attemptsTo(Navigate.toTheLoginPage());
 
     }
+
+    @Given("{actor} logged onto the application")
+    public void colin_logged_onto_the_application(Actor actor) {
+        actor.attemptsTo(Navigate.toTheLoginPage());
+    }
+
     @When("{actor} logs in with valid credentials")
     public void logs_in_with_valid_credentials(Actor actor) {
         actor.attemptsTo(
