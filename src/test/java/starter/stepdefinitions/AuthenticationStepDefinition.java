@@ -20,8 +20,9 @@ public class AuthenticationStepDefinition {
     }
 
     @Given("{actor} logged onto the application")
-    public void colin_logged_onto_the_application(Actor actor) {
-        actor.attemptsTo(Navigate.toTheLoginPage());
+    public void logged_onto_the_application(Actor actor) {
+        actor.attemptsTo(Navigate.toTheLoginPage(),Login.asA(SwaglabsUser.STANDARD_USER));
+
     }
 
     @When("{actor} logs in with valid credentials")

@@ -11,8 +11,8 @@ public class AddToCart {
     public static Performable item(String itemName){
 
          return Task.where("{0} clicks on the button add to cart button for "+ itemName,
-                Click.on(Button.called("Add to cart")
-                        .inside(PageElement.called("inventory_item")
+                Click.on(Button.withText("Add to cart")
+                        .inside(PageElement.withCSSClass("inventory_item")
                                 .containingText(itemName))
                 )
         );

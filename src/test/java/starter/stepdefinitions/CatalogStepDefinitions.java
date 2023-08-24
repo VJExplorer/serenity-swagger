@@ -30,7 +30,7 @@ public class CatalogStepDefinitions {
     @Then("the shopping cart item count should be {int}")
     public void theShoppingCartItemCountShouldBe(int expectedCount) {
         theActorInTheSpotlight().attemptsTo(
-                Ensure.that(Text.of("shopping_cart_badge")).asAnInteger().isEqualTo(expectedCount)
+                Ensure.that(Text.of(".shopping_cart_badge")).asAnInteger().isEqualTo(expectedCount)
         );
 
     }
@@ -39,7 +39,7 @@ public class CatalogStepDefinitions {
     public void theItemShouldAppearInTheCart() {
         theActorInTheSpotlight().attemptsTo(
                 Navigate.toTheShoppingCart(),
-                Ensure.that(Text.ofEach("inventory_item_name")).containsElementsFrom(cartItems)
+                Ensure.that(Text.ofEach(".inventory_item_name")).containsElementsFrom(cartItems)
         );
     }
 
