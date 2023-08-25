@@ -7,6 +7,8 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.questions.Text;
 import swaglabs.tasks.cart.AddToCart;
+import swaglabs.tasks.cart.CartContents;
+import swaglabs.tasks.cart.CartCount;
 import swaglabs.tasks.navigation.Navigate;
 import java.util.List;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -30,7 +32,7 @@ public class CatalogStepDefinitions {
     @Then("the shopping cart item count should be {int}")
     public void theShoppingCartItemCountShouldBe(int expectedCount) {
         theActorInTheSpotlight().attemptsTo(
-                Ensure.that(Text.of(".shopping_cart_badge")).asAnInteger().isEqualTo(expectedCount)
+                Ensure.that(CartCount.currentlyDisplayed()).isEqualTo(expectedCount)
         );
 
     }
@@ -39,7 +41,7 @@ public class CatalogStepDefinitions {
     public void theItemShouldAppearInTheCart() {
         theActorInTheSpotlight().attemptsTo(
                 Navigate.toTheShoppingCart(),
-                Ensure.that(Text.ofEach(".inventory_item_name")).containsElementsFrom(cartItems)
+                Ensure.that(CartContents.currentlyDisplayed()).containsElementsFrom(cartItems)
         );
     }
 
